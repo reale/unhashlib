@@ -7,17 +7,17 @@ with open('LICENSE.txt') as f:
     license = f.read()
 
 setup(
-    name = 'alphabet',
-    version = '0.0.7',
+    name = 'unhashlib',
+    version = '0.0.1',
     description = 'A string class enhancement',
     long_description = readme,
     #license = license,
     packages=find_packages(exclude=('tests', 'docs')),
     author = 'Roberto Reale',
     author_email = 'roberto@reale.me',
-    url = 'https://github.com/reale/alphabet',
+    url = 'https://github.com/reale/unhashlib',
     keywords = [ ],
-    install_requires = [ 'googletrans', 'filemagic', 'pygments', ],
+    install_requires = [ ],
     test_suite = 'nose.collector',
     tests_require = ['nose'],
 )

@@ -1,59 +1,22 @@
 ========
-alphabet
+unhashlib
 ========
 
-.. image:: https://img.shields.io/pypi/v/alphabet.svg
+.. image:: https://img.shields.io/pypi/v/unhashlib.svg
    :alt: PyPI
 
 
-``alphabet`` is a Python string class enhancement (a mixin).
+``unhashlib`` is a Python string class enhancement (a mixin).
 
 Installation
 ------------
 
 The easiest way to install the package is via ``pip``::
 
-    $ pip install alphabet
+    $ pip install unhashlib
 
 Usage
 -----
-
-**Obfuscation**
-
-.. code:: python
-
-    from alphabet import alphabet
-
-    key = "foobar"
-    s = alphabet.alphabet("python")
-
-    print(s)
-    > python
-
-    t = s.obfuscate(key)
-    print(bytes(t, 'utf-8'))
-    > b'\x16\x16\x1b\n\x0e\x1c'
-
-    print(t.obfuscate(key))
-    > python
-
-**Identify a string**
-
-.. code:: python
-
-    from alphabet import alphabet
-    
-    alphabet('%!').identify()
-    > 'PostScript document text'
-    
-    alphabet('import os').identify()
-    > 'Python'
-    
-    alphabet('<div>foobar</div>').identify()
-    > 'XML'
-    
-    alphabet('Привет').identify()
-    > 'ru'
 
 **Checking against a hash to the basic string class**
 
@@ -61,9 +24,9 @@ Usage
 
 .. code:: python
 
-    from alphabet import alphabet
+    from unhashlib import unhashlib
 
-    s =  alphabet('the tragicall historye of romeus and juliet')
+    s =  unhashlib('the tragicall historye of romeus and juliet')
 
     len(s)
     > 43
