@@ -1,6 +1,6 @@
-========
+=========
 unhashlib
-========
+=========
 
 .. image:: https://img.shields.io/pypi/v/unhashlib.svg
    :alt: PyPI
@@ -20,7 +20,7 @@ Usage
 
 **Checking against a hash to the basic string class**
 
- The hash can be automatically recognized.
+The hash can be automatically recognized.
 
 .. code:: python
 
