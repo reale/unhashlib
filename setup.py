@@ -8,7 +8,7 @@ with open('LICENSE.txt') as f:
 
 setup(
     name = 'unhashlib',
-    version = '0.0.1',
+    version = '0.1.0',
     description = 'A string class enhancement',
     long_description = readme,
     #license = license,
@@ -17,7 +17,7 @@ setup(
     author_email = 'roberto@reale.me',
     url = 'https://github.com/reale/unhashlib',
     keywords = [ ],
-    install_requires = [ ],
+    install_requires = ['hashlib', 'requests'],
     test_suite = 'nose.collector',
     tests_require = ['nose'],
 )

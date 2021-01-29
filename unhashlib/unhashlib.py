@@ -25,6 +25,7 @@
 # SOFTWARE.
 
 import hashlib
+import requests
 
 
 class unhashlib(str):
@@ -61,6 +62,25 @@ class unhashlib(str):
         # for our purposes, `nodigest' is an algorithm (ex falso quodlibet)
         return (self.get_algorithm(digest, algorithm) is not None)
 
-                
+    # inspired by https://github.com/ikkebr/PyBozoCrack
+    def crack(self, algorithm="md5"):
+        response = requests.get(
+            "http://www.google.com/search?q={hash}".format(hash=self.__str__()))
+
+        wordlist = response.content.decode(response.encoding).replace(
+            '.', ' ').replace(':', ' ').replace(
+                '?', '').replace("('", ' ').replace(
+                    "'", ' ').split(' ')
+
+        hasher = getattr(hashlib, algorithm)
+        plaintext = None
+
+        for word in set(wordlist):
+            if hasher(word.encode(self.__encoding)).hexdigest() == self.__str__():
+                plaintext = word
+                break
+
+        return plaintext
         
+
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

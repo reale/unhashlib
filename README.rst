@@ -18,25 +18,26 @@ The easiest way to install the package is via ``pip``::
 Usage
 -----
 
-**Checking against a hash to the basic string class**
-
-The hash can be automatically recognized.
-
 .. code:: python
 
     from unhashlib import unhashlib
 
-    s =  unhashlib('the tragicall historye of romeus and juliet')
+    s1 =  unhashlib('the tragicall historye of romeus and juliet')
 
-    len(s)
+    len(s1)
     > 43
 
-    s.title()
+    s1.title()
     > 'The Tragicall Historye Of Romeus And Juliet'
 
     from hashlib import sha256
-    print(s.get_algorithm(sha256(s.encode('utf-8')).hexdigest()))
+    print(s1.get_algorithm(sha256(s1.encode('utf-8')).hexdigest()))
     > 'sha256'
 
-    print(s.check(sha256(s.encode('utf-8')).hexdigest()))
+    print(s1.check(sha256(s1.encode('utf-8')).hexdigest()))
     > True
+
+    from hashlib import md5
+    s2 = unhashlib(md5('python'.encode('utf-8')).hexdigest())
+    print(s2.crack())
+    > 'python'
